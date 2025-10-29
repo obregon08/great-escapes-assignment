@@ -16,7 +16,9 @@
 .Greatest-escape-fore-and-background-5-hex { color: #9C8367; } LIGHT BROWN
  */
 
+/* Suggestion: Remove unused commented code to keep your CSS clean and maintainable */
 /* TRANSPARANCY IN 25% INCREMENTS */
+/* TYPO: Should be "TRANSPARENCY" not "TRANSPARANCY" */
 
 /* ---- GOOGLE FONTS ---- */
 
@@ -32,6 +34,8 @@
   font-style: normal;
 } */
 
+/* Suggestion: If you're not using these classes, remove them or convert to utility classes */
+
 /* ---------------------------------------- */
 
 /* ----CLASSES STYLING---- */
@@ -43,27 +47,41 @@
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
+  /* Suggestion: Add margin: 0; padding: 0; to body instead of using negative margins elsewhere */
+  /* This is the standard way to reset default browser margins */
 }
 
 .header {
   background-color: #876c39f0;
   margin: -8px -8px 0px -8px;
+  /* ISSUE: Negative margins are a code smell - they often cause layout problems */
+  /* Suggestion: Remove negative margins and set margin: 0; padding: 0; on body instead */
   height: 200px;
   min-height: 100px;
   max-height: none;
   min-width: 1300px;
+  /* CRITICAL ISSUE: min-width: 1300px will break the design on tablets and phones */
+  /* This prevents responsive design - most mobile screens are 375-414px wide */
+  /* Suggestion: Use max-width instead, or remove and let it be responsive */
+  /* Better: Use media queries (@media) for different screen sizes */
   max-width: none;
 }
 .navigation {
   display: block;
+  /* ISSUE: This class is defined but never used in the HTML */
+  /* Suggestion: Remove unused CSS rules to keep code clean */
 }
 .nav_links ul li {
   display: inline-block;
   margin: 0 0 0 20px;
   padding: 0px -5px 10px 25px;
+  /* ISSUE: Negative padding (0px -5px) doesn't work in CSS - negative padding is invalid */
+  /* Suggestion: Use margin-left: -5px; if you want negative spacing, or remove it */
   color: #f7d865;
   min-height: 50px;
   min-width: 60px;
+  /* Suggestion: Add cursor: pointer; if these will be clickable links */
+  /* Suggestion: Add hover effect: :hover { color: #F7D865; opacity: 0.8; } */
 }
 .logo {
   background-color: #876c39bf;
@@ -71,54 +89,80 @@
   border-radius: 12px;
   margin: 15px 0px 0px 10px;
   padding: 0px 0px;
+  /* Suggestion: "0px 0px" can be shortened to just "0" - same result, cleaner code */
   width: 120px;
   height: 120px;
+  /* Good: Using fixed dimensions for logo */
+  /* Suggestion: Consider making it responsive: max-width: 120px; height: auto; */
   text-align: left;
+  /* Note: text-align on img doesn't do anything - text-align only affects text */
   position: static;
+  /* Note: "static" is the default - you can remove this line */
   display: inline-block;
 }
 .introduction {
   background-color: #386071f5;
   margin: 100px 350px 0px 350px;
+  /* ISSUE: Fixed pixel margins (350px) will break on smaller screens */
+  /* Suggestion: Use margin: 100px auto 0; with max-width to center it */
+  /* Example: margin: 100px auto 0; max-width: 900px; */
   padding: 10px 100px 30px 100px;
+  /* Suggestion: Large padding (100px) may be too much on mobile */
+  /* Consider: padding: 30px 20px; with @media queries for larger screens */
   min-width: 500px;
   max-width: 900px;
   min-height: 200px;
   max-height: 790px;
   display: inline-block;
+  /* Suggestion: Consider display: block; with margin: auto; for better centering */
 }
 .get_in_touch {
   background-color: rgba(0, 0, 0, 0.939);
   margin: 10px 10px 10px 10px;
+  /* Suggestion: "10px 10px 10px 10px" can be shortened to "10px" - all sides same value */
   padding: 10px 10px 10px 10px;
+  /* Same suggestion: can be "10px" */
   text-align: center;
   min-width: 900px;
+  /* ISSUE: min-width: 900px breaks mobile view (phones are ~375px wide) */
+  /* Suggestion: Remove or use max-width with media queries */
   min-height: 400px;
 }
 .h2_in_touch {
   text-align: center;
   font-size: 80px;
+  /* ISSUE: 80px is very large - may be too big on mobile devices */
+  /* Suggestion: Use responsive sizing: font-size: clamp(2rem, 5vw, 5rem); */
+  /* Or use media queries: @media (max-width: 768px) { font-size: 40px; } */
   margin: 0 auto;
+  /* Good: Using auto margins for centering */
 }
 .locations {
   text-align: center;
   margin: 50px auto;
   padding: 10px 0;
   display: inline-flex;
+  /* Note: inline-flex centers the content, which is good */
+  /* Suggestion: Consider adding gap: 40px; (modern CSS) instead of margins on children */
   font-size: 24px;
   line-height: 50px;
+  /* Good: line-height improves readability */
 }
 .footer {
   background-color: black;
   margin: 10px 10px -8px 10px;
+  /* ISSUE: Negative margin again - consider fixing body margin instead */
   padding: 10px 10px 10px 10px;
+  /* Suggestion: Can be shortened to "10px" */
   text-align: left;
   min-height: 300px;
   min-width: 600px;
+  /* ISSUE: min-width may cause horizontal scrolling on mobile */
 }
 .footer_links {
   line-height: 25px;
   display: inline-block;
+  /* Suggestion: Consider adding vertical-align: top; to align with logo if needed */
 }
 .footer_logo {
   background-color: #876c39bf;
@@ -126,9 +170,11 @@
   border-radius: 12px;
   margin: 10px 30px;
   padding: 0 0px;
+  /* Suggestion: "0 0px" can be just "0" */
   width: 200px;
   height: 200px;
   display: inline-block;
+  /* Suggestion: Consider making responsive: max-width: 200px; height: auto; */
 }
 .buy_button {
   background-color: #f7d865;
@@ -143,6 +189,10 @@
   display: inline-block;
   margin: 0px 5px;
   padding: 0px 0px;
+  /* Suggestion: Add cursor: pointer; for better UX */
+  /* Suggestion: Add hover effect: :hover { background-color: #e6c654; } */
+  /* Suggestion: Add transition: transition: background-color 0.3s ease; for smooth hover */
+  /* Suggestion: Add active state: :active { transform: scale(0.98); } for click feedback */
 }
 .learn_button {
   border: none;
@@ -156,6 +206,10 @@
   display: inline-block;
   margin: 0 5px;
   padding: 0px 0px;
+  /* ISSUE: This button has no background-color, so it's invisible on dark background */
+  /* Suggestion: Add background-color or border to make it visible */
+  /* Example: background-color: transparent; border: 2px solid #f7d865; color: #f7d865; */
+  /* Same suggestions as buy_button: cursor, hover, transition, active states */
 }
 
 /* ----ELEMENT STYLING---- */
@@ -163,6 +217,10 @@ body {
   background-image: url(Images/Greatescapes_background_image.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  /* Good: background-size: cover makes the image fill the screen */
+  /* Suggestion: Add background-position: center; to ensure the image is centered */
+  /* Suggestion: Consider adding background-attachment: fixed; for a parallax effect (optional) */
+  /* Suggestion: Add margin: 0; padding: 0; here instead of using negative margins in other elements */
 }
 main {
   text-align: center;
@@ -171,6 +229,8 @@ nav {
   text-align: center;
   padding: 0;
   margin: -60px auto;
+  /* ISSUE: Negative margin again - try to avoid this pattern */
+  /* Suggestion: Use flexbox or grid on parent container instead for better layout control */
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -183,7 +243,49 @@ h3 {
   font-weight: 400;
   font-style: normal;
   font-size: 50px;
+  /* ISSUE: All headings (h1, h2, h3) have the same font-size, which is bad for hierarchy */
+  /* Suggestion: h1 should be largest, h2 medium, h3 smallest */
+  /* Example: h1 { font-size: 48px; } h2 { font-size: 36px; } h3 { font-size: 24px; } */
+  /* Better: Use relative units: h1 { font-size: 3rem; } h2 { font-size: 2.25rem; } h3 { font-size: 1.5rem; } */
 }
+
+/* GENERAL SUGGESTIONS FOR RESPONSIVE DESIGN */
+/* Add these media queries at the end of your CSS file: */
+
+/*
+@media (max-width: 768px) {
+  .header {
+    min-width: auto;
+    height: auto;
+    padding: 20px;
+  }
+  
+  .introduction {
+    margin: 20px;
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  .get_in_touch {
+    min-width: auto;
+    padding: 20px;
+  }
+  
+  .h2_in_touch {
+    font-size: 40px;
+  }
+  
+  h1, h2, h3 {
+    font-size: 28px;
+  }
+}
+*/
+
+/* This will make your site work on tablets and phones */
+
 ul {
   list-style-type: none;
+  /* Good: Removing default list bullets */
+  /* Suggestion: Add padding-left: 0; to remove default left padding on ul */
+  /* Suggestion: Consider resetting margin: 0; here if you want more control */
 }
