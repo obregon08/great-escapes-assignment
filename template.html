@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Good: DOCTYPE, lang attribute, and meta tags are all correct! -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Good: Viewport meta tag is essential for responsive design -->
     <title>Great Escape Room of Central Texas - Killeen, Temple.</title>
+    <!-- Suggestion: Keep titles concise (50-60 characters). Consider: "Great Escape Room - Killeen & Temple, TX" -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Good: Preconnect to Google Fonts improves loading performance -->
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <!-- Suggestion: You're loading many font weights (0-900). Consider loading only what you use (400, 700, 800) to improve page speed -->
     <link rel="stylesheet" href="main.css" />
   </head>
   <body class="body">
+    <!-- Good: Semantic HTML5 <header> element -->
     <header class="header">
       <div>
         <img
@@ -22,8 +28,14 @@
           width="720"
           height="720"
         />
+        <!-- Good: Alt text for accessibility -->
+        <!-- Suggestion: For large images, specify width/height in CSS instead of HTML. Also consider using modern formats (WebP) for better compression -->
         <nav class="nav_links" role="navigation" aria-label="main menu">
+          <!-- Good: ARIA label for screen readers -->
           <ul>
+            <!-- ISSUE: Navigation items should be links (<a> tags), not just list items -->
+            <!-- Suggestion: Change to: <li><a href="#home">Home</a></li> -->
+            <!-- Without links, users can't actually navigate! -->
             <li>Home</li>
             <li>Rooms</li>
             <li>Gift Voucher</li>
@@ -31,30 +43,41 @@
             <li>FAQ</li>
             <li>About Us</li>
             <li>Contact Us</li>
+            <!-- ISSUE: Button inside <ul> is invalid HTML structure -->
+            <!-- Suggestion: Move button outside the <ul>, or use <li><button>...</button></li> -->
             <button class="buy_button">Buy Tickets</button>
           </ul>
         </nav>
       </div>
     </header>
     <main>
+      <!-- Good: Semantic <main> element for main content -->
       <!-- Use this intro for HOME & ROOMS pages only remove on the rest -->
       <div class="introduction">
         <h1>THE BEST ESCAPE ROOMS IN CENTRAL TEXAS</h1>
+        <!-- Good: Using h1 for main heading -->
         <p>
           Unlock the ultimate adventure at Great Escape Killeen & Temple!
           Serving Killeen & Temple, our escape rooms are meticulously designed
           to challenge your wits and reward your curiosity. Perfect for friends,
           family, and team-building events, our puzzles deliver an exhilarating
           experience that will keep you talking liong after you've escaped.
+          <!-- TYPO FIX: "liong" should be "long" -->
         </p>
         <button class="buy_button">Buy Tickets</button>
         <button class="learn_button">Learn More</button>
+        <!-- Suggestion: Add type="button" to buttons if they're not submitting forms -->
+        <!-- Suggestion: Consider adding onclick or linking to actual pages -->
       </div>
       <div class="get_in_touch">
+        <!-- Suggestion: Consider using <section> element with aria-labelledby for better semantics -->
         <h2 class="h2_in_touch">GET IN TOUCH</h2>
         <div class="locations">
           <ul>
             <li>KILLEEN, TX</li>
+            <!-- Suggestion: Make phone number a clickable link: <li><a href="tel:2546802686">(254) 680-2686</a></li> -->
+            <!-- Suggestion: Make email a clickable link: <li><a href="mailto:info@greatescapectx.com">info@greatescapectx.com</a></li> -->
+            <!-- Suggestion: Make address a link to Google Maps -->
             <li>(254) 680-2686</li>
             <li>info@greatescapectx.com</li>
             <li>4400 E. Central Texas Expy, Killeen, TX 76543</li>
@@ -62,6 +85,7 @@
 
           <ul>
             <li>TEMPLE TX</li>
+            <!-- Same suggestions as above for phone, email, and address -->
             <li>(254) 231-3467</li>
             <li>info@greatescapectx.com</li>
             <li>2603 Thornton Lane Suite 170, Temple TX 76502</li>
@@ -69,7 +93,10 @@
         </div>
       </div>
 
+      <!-- ISSUE: Footer should be outside <main> tag for proper semantic structure -->
+      <!-- Suggestion: Close </main> before <footer> -->
       <footer class="footer">
+        <!-- Good: Semantic <footer> element -->
         <img
           class="footer_logo"
           src="Images/Greatescape_logo_1.jpg"
@@ -77,9 +104,12 @@
           width="720"
           height="720"
         />
+        <!-- Suggestion: Same as header logo - consider CSS sizing -->
         <div class="footer_links">
           <h3>QUICK LINKS</h3>
           <ul>
+            <!-- Same issue: These should be links, not just list items -->
+            <!-- Suggestion: <li><a href="#home">Home</a></li> -->
             <li>Home</li>
             <li>Killeen Games</li>
             <li>Temple Games</li>
